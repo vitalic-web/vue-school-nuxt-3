@@ -1,5 +1,13 @@
+<script setup>
+const route = useRoute();
+const { data } = useFetch(`http://www.omdbapi.com/?apikey=aee0adc2&i=${route.params.id}`, {
+  pick: ['Plot', 'Title'],
+  key: `/movies/${route.params.id}`,
+});
+</script>
+
 <template>
   <div>
-      <h1>{{ $route.params.id }}</h1>
+    <pre>{{ data }}</pre>
   </div>
 </template>
